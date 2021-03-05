@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  http_basic_authenticate_with name: ENV['user_name'], password: ENV['user_password'], expect: [:index, :show]
+
   def index
     @articles = Article.all
   end
